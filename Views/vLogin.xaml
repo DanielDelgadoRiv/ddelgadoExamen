@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ddelgadoExamen.Views.vLogin"
+             Title="vLogin">
+    <VerticalStackLayout
+        Padding="10"
+        Margin="20">
+        <Label 
+            Text="LOGIN"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <!--IMAGEN-->
+        <Image Source="registro.png" />
+
+        <!--LOGIN-->
+        <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"
+            Margin="0,17,0,0"
+            RowSpacing="8"
+            ColumnSpacing="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Usuario:"
+                Grid.Row="0"
+                Grid.Column="0" />
+            <Entry x:Name="txtUsuario"
+                Placeholder="Ingrese usuario"
+                Grid.Row="0"
+                Grid.Column="1" />
+
+            <Label Text="Contraseña:"
+                Grid.Row="1"
+                Grid.Column="0" />
+            <Entry x:Name="txtContrasena"
+                Placeholder="Ingrese contraseña"
+                Grid.Row="1"
+                Grid.Column="1"
+                IsPassword="True" />
+
+            <Button x:Name="btnIniciarSesion"
+                Text="INICIAR SESIÓN"
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Clicked="btnIniciarSesion_Clicked" />
+
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
