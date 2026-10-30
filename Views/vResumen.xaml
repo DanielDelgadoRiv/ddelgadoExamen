@@ -6,15 +6,10 @@
     <VerticalStackLayout
         Padding="10"
         Margin="20">
-        <Label x:Name="lbUsuarioConectado"
-            Text="Bienvenida"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label x:Name="lblUsuarioConectado" />
 
-        <Label 
-            Text="RESUMEN"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="RESUMEN"
+            Style="{StaticResource labelTitulo}" />
 
         <!--RESUMEN-->
         <Grid

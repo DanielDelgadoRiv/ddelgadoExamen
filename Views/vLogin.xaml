@@ -9,7 +9,11 @@
         <Label 
             Text="LOGIN"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            BackgroundColor="White"
+            TextColor="Purple"
+            FontSize="26"
+            FontAttributes="Bold" />
 
         <!--IMAGEN-->
         <Image Source="registro.png"

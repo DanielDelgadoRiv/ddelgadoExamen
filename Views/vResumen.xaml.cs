@@ -2,15 +2,16 @@ namespace ddelgadoExamen.Views;
 
 public partial class vResumen : ContentPage
 {
-	public vResumen()
-	{
-		InitializeComponent();
-	}
+    public vResumen()
+    {
+        InitializeComponent();
+    }
 
-    public vResumen(string nombre, string apellido, string edad, DateTime? fechaInicio, string plan, string casillero, double montoInicial, double pagoMensual, double totalPagar)
+    public vResumen(string usuario, string nombre, string apellido, string edad, DateTime? fechaInicio, string plan, string casillero, double montoInicial, double pagoMensual, double totalPagar)
     {
         InitializeComponent();
 
+        lblUsuarioConectado.Text = $"Usuario conectado: {usuario}";
         lblNombre.Text = nombre;
         lblApellido.Text = apellido;
         lblEdad.Text = edad;

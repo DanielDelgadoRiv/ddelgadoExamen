@@ -6,14 +6,15 @@
     <VerticalStackLayout
         Padding="10"
         Margin="20">
-        <Label x:Name="lblUsuarioConectado"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" />
+        <Label x:Name="lblUsuarioConectado" />
         
         <Label 
             Text="REGISTRO"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            BackgroundColor="White"
+            TextColor="Blue"
+            FontSize="22" />
 
         <!--REGISTRO-->
         <Grid

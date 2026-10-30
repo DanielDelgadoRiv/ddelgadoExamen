@@ -2,6 +2,7 @@ namespace ddelgadoExamen.Views;
 
 public partial class vRegistro : ContentPage
 {
+    string usuarioConectado;
     string nombre;
     string apellido;
     string edad;
@@ -23,6 +24,7 @@ public partial class vRegistro : ContentPage
         if (!string.IsNullOrEmpty(usuario))
         {
             lblUsuarioConectado.Text = $"Usuario conectado: {usuario}";
+            usuarioConectado = usuario;
         } 
         else
         {
@@ -62,10 +64,10 @@ public partial class vRegistro : ContentPage
                 return;
             }
 
-            // Validación de fecha de inicio: no puede ser mayor a la fecha actual
-            if (fechaInicio.HasValue && fechaInicio.Value > DateTime.Today)
+            // Validación de fecha de inicio: no puede ser menor que fecha actual
+            if (fechaInicio.HasValue && fechaInicio.Value < DateTime.Today)
             {
-                await DisplayAlertAsync("ALTO", "La fecha de inicio no puede ser mayor a la fecha actual.", "Aceptar");
+                await DisplayAlertAsync("ALTO", "La fecha de inicio no puede ser una fecha pasada.", "Aceptar");
                 return;
             }
 
@@ -100,7 +102,7 @@ public partial class vRegistro : ContentPage
         // Validar que vTotalPagar sea mayor a cero antes de mostrar el resumen
         if (vTotalPagar > 0)
         {
-            await Navigation.PushAsync(new vResumen(nombre, apellido, edad, fechaInicio, plan, casillero, vMontoInicial, vPagoMensual, vTotalPagar));
+            await Navigation.PushAsync(new vResumen(usuarioConectado, nombre, apellido, edad, fechaInicio, plan, casillero, vMontoInicial, vPagoMensual, vTotalPagar));
         }
         else
         {

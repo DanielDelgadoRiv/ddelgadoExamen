@@ -6,21 +6,10 @@
     <VerticalStackLayout
         Padding="10"
         Margin="20">
-        <Label 
-            Text="INFORMACION DE ESTUDIANTE"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Autor: Daniel Delgado Rivadeneira"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" />
-        <Label 
-            Text="Carrera de Informática"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" />
-        <Label 
-            Text="Paralelo A"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start" />
+        <Label Text="INFORMACION DE ESTUDIANTE"
+            Style="{StaticResource labelTitulo}" />
+        <Label Text="Autor: Daniel Delgado Rivadeneira" />
+        <Label Text="Carrera de Informática" />
+        <Label Text="Paralelo A" />
     </VerticalStackLayout>
 </ContentPage>
