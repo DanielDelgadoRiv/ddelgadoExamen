@@ -6,13 +6,12 @@
     <VerticalStackLayout
         Padding="10"
         Margin="20">
-        <Label x:Name="lbUsuarioConectado"
-            Text="Bienvenida"
+        <Label x:Name="lblUsuarioConectado"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Start" />
         
         <Label 
-            Text="VENTANA DE REGISTRO"
+            Text="REGISTRO"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
@@ -29,8 +28,8 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80" />
-                <ColumnDefinition Width="80" />
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="120" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -106,7 +105,7 @@
                 </Picker.Items>
             </Picker>
 
-            <Label Text="MontoInicial:"
+            <Label Text="Monto inicial $:"
                 Grid.Row="3"
                 Grid.Column="0" />
             <Entry x:Name="txtMontoInicial"

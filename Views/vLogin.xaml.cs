@@ -2,13 +2,13 @@ namespace ddelgadoExamen.Views;
 
 public partial class vLogin : ContentPage
 {
-	public vLogin()
-	{
-		InitializeComponent();
-	}
+    public vLogin()
+    {
+        InitializeComponent();
+    }
 
-	private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
-	{
+    private async void btnIniciarSesion_Clicked(object sender, EventArgs e)
+    {
         string usuario = txtUsuario.Text;
         string contrasena = txtContrasena.Text;
 
@@ -47,7 +47,11 @@ public partial class vLogin : ContentPage
         }
 
         // Iniciar sesión
-        await DisplayAlertAsync("Éxito", "Inicio de sesión exitoso.", "Aceptar");
         await Navigation.PushAsync(new vRegistro(usuario));
+    }
+
+    private async void btnAcercaDe_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new vInfoEstudiante());
     }
 }

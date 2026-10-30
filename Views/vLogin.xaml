@@ -12,7 +12,8 @@
             HorizontalOptions="Center" />
 
         <!--IMAGEN-->
-        <Image Source="registro.png" />
+        <Image Source="registro.png"
+               WidthRequest="150"/>
 
         <!--LOGIN-->
         <Grid
@@ -51,9 +52,14 @@
             <Button x:Name="btnIniciarSesion"
                 Text="INICIAR SESIÓN"
                 Grid.Row="2"
-                Grid.Column="1"
-                Grid.RowSpan="2"
+                Grid.Column="0"
                 Clicked="btnIniciarSesion_Clicked" />
+
+            <Button x:Name="btnAcercaDe"
+                Text="Acerca de"
+                Grid.Row="2"
+                Grid.Column="1"
+                Clicked="btnAcercaDe_Clicked" />
 
 
         </Grid>

@@ -3,10 +3,114 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ddelgadoExamen.Views.vResumen"
              Title="vResumen">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
+    <VerticalStackLayout
+        Padding="10"
+        Margin="20">
+        <Label x:Name="lbUsuarioConectado"
+            Text="Bienvenida"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Label 
+            Text="RESUMEN"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <!--RESUMEN-->
+        <Grid
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"
+            Margin="0,17,0,0"
+            RowSpacing="8"
+            ColumnSpacing="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Nombre:"
+                Grid.Row="0"
+                Grid.Column="0" />
+            <Label x:Name="lblNombre"
+                Grid.Row="0"
+                Grid.Column="1" />
+
+            <Label Text="Apellido:"
+                Grid.Row="1"
+                Grid.Column="0" />
+            <Label x:Name="lblApellido"
+                Grid.Row="1"
+                Grid.Column="1" />
+
+            <Label Text="Edad:"
+                Grid.Row="2"
+                Grid.Column="0" />
+            <Label x:Name="lblEdad"
+                Grid.Row="2"
+                Grid.Column="1" />
+
+            <Label Text="Fecha de inicio:"
+                Grid.Row="3"
+                Grid.Column="0" />
+            <Label x:Name="lblFechaInicio"
+                Grid.Row="3"
+                Grid.Column="1" />
+
+            <Label Text="Plan:"
+                Grid.Row="4"
+                Grid.Column="0" />
+            <Label x:Name="lblPlan"
+                Grid.Row="4"
+                Grid.Column="1" />
+
+            <Label Text="Casillero:"
+                Grid.Row="5"
+                Grid.Column="0" />
+            <Label x:Name="lblCasillero"
+                Grid.Row="5"
+                Grid.Column="1" />
+
+            <Label Text="Monto inicial:"
+                Grid.Row="6"
+                Grid.Column="0" />
+            <Label x:Name="lblMontoInicial"
+                Grid.Row="6"
+                Grid.Column="1" />
+
+            <Label Text="Pago mensual:"
+                Grid.Row="7"
+                Grid.Column="0" />
+            <Label x:Name="lblPagoMensual"
+                Grid.Row="7"
+                Grid.Column="1" />
+
+            <Label Text="Pago total:"
+                Grid.Row="8"
+                Grid.Column="0" />
+            <Label x:Name="lblTotalPagar"
+                Grid.Row="8"
+                Grid.Column="1" />
+        </Grid>
+
+        <!-- BOTONES-->
+        <Button x:Name="btnNuevoRegistro"
+            Text="NUEVO REGISTRO"
+            Clicked="btnNuevoRegistro_Clicked" />
+
+        <Button x:Name="btnCerrarSesion"
+            Text="CERRAR SESION"
+            Clicked="btnCerrarSesion_Clicked" />
+        
     </VerticalStackLayout>
 </ContentPage>

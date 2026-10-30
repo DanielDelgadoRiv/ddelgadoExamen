@@ -6,4 +6,29 @@ public partial class vResumen : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    public vResumen(string nombre, string apellido, string edad, DateTime? fechaInicio, string plan, string casillero, double montoInicial, double pagoMensual, double totalPagar)
+    {
+        InitializeComponent();
+
+        lblNombre.Text = nombre;
+        lblApellido.Text = apellido;
+        lblEdad.Text = edad;
+        lblFechaInicio.Text = fechaInicio?.ToString("yyyy-MM-dd") ?? string.Empty;
+        lblPlan.Text = plan;
+        lblCasillero.Text = casillero;
+        lblMontoInicial.Text = "$" + montoInicial.ToString("F2");
+        lblPagoMensual.Text = "$" + pagoMensual.ToString("F2");
+        lblTotalPagar.Text = "$" + totalPagar.ToString("F2");
+    }
+
+    private async void btnNuevoRegistro_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new vRegistro());
+    }
+
+    private async void btnCerrarSesion_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new vLogin());
+    }
 }
