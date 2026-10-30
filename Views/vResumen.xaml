@@ -99,9 +99,9 @@
         </Grid>
 
         <!-- BOTONES-->
-        <Button x:Name="btnNuevoRegistro"
-            Text="NUEVO REGISTRO"
-            Clicked="btnNuevoRegistro_Clicked" />
+        <Button x:Name="btnExportarTXT"
+            Text="EXPORTAR A TXT"
+            Clicked="btnExportarTXT_Clicked" />
 
         <Button x:Name="btnCerrarSesion"
             Text="CERRAR SESION"

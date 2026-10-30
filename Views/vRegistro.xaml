@@ -121,6 +121,7 @@
                 Grid.Column="0"
                 Clicked="btnCalcularPagoMensual_Clicked" />
             <Entry x:Name="txtPagoMensual"
+                   Placeholder="Pago mensual"
                 IsEnabled="False"
                 Grid.Row="4"
                 Grid.Column="1" />

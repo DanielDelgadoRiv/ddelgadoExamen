@@ -52,14 +52,18 @@ public partial class vRegistro : ContentPage
             // Validar que los campos no estén vacíos
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) || string.IsNullOrWhiteSpace(edad) || !fechaInicio.HasValue || string.IsNullOrWhiteSpace(plan) || string.IsNullOrWhiteSpace(casillero) || string.IsNullOrWhiteSpace(montoInicial))
             {
+                vTotalPagar = 0;
+                txtPagoMensual.Text = "Pago mensual";
                 await DisplayAlertAsync("ALTO", "Por favor, complete todos los campos.", "Aceptar");
                 return;
             }
 
             // Validar que monto inicial este entre 120 y 600
             vMontoInicial = double.TryParse(montoInicial, out double monto) ? monto : 0;
-            if (vMontoInicial <= 120 || vMontoInicial >= 600)
+            if (vMontoInicial < 120 || vMontoInicial > 600)
             {
+                vTotalPagar = 0;
+                txtPagoMensual.Text = "Pago mensual";
                 await DisplayAlertAsync("ALTO", "El monto inicial debe estar entre 120 y 600.", "Aceptar");
                 return;
             }
@@ -67,6 +71,8 @@ public partial class vRegistro : ContentPage
             // Validación de fecha de inicio: no puede ser menor que fecha actual
             if (fechaInicio.HasValue && fechaInicio.Value < DateTime.Today)
             {
+                vTotalPagar = 0;
+                txtPagoMensual.Text = "Pago mensual";
                 await DisplayAlertAsync("ALTO", "La fecha de inicio no puede ser una fecha pasada.", "Aceptar");
                 return;
             }
@@ -75,24 +81,31 @@ public partial class vRegistro : ContentPage
             double membresia = 1200;
             double cuotas = 5;
             vPagoMensual = (membresia - vMontoInicial) / cuotas;
+            string recargo = "";
 
             if (casillero == "NO")
             {
                 vPagoMensual = vPagoMensual * 1.02;
+                recargo = "2%";
             }
             else if (casillero == "SI")
             {
                 vPagoMensual = vPagoMensual * 1.10;
+                recargo = "10%";
             }
 
             txtPagoMensual.Text = "$" + vPagoMensual.ToString("F2");
 
             // Calcular total a pagar
             vTotalPagar = vMontoInicial + (vPagoMensual * cuotas);
+
+            await DisplayAlertAsync("Calculado", "5 cuotas de " + txtPagoMensual.Text + " (incluido recargo del " + recargo + " a la cuota mensual)", "Aceptar");
         }
         catch (Exception ex)
         {
-            await DisplayAlertAsync("Error", $"Error en la operación: {ex.Message}", "Aceptar");
+            vTotalPagar = 0;
+            txtPagoMensual.Text = "Pago mensual";
+            await DisplayAlertAsync("ERROR", $"Error en la operación: {ex.Message}", "Aceptar");
         }
         
     }

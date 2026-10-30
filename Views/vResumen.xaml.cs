@@ -23,9 +23,32 @@ public partial class vResumen : ContentPage
         lblTotalPagar.Text = "$" + totalPagar.ToString("F2");
     }
 
-    private async void btnNuevoRegistro_Clicked(object sender, EventArgs e)
+    private async void btnExportarTXT_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new vRegistro());
+        string datos = lblUsuarioConectado.Text + "\n\n" +
+            "Nombre: " + lblNombre.Text + "\n" +
+            "Apellido: " + lblApellido.Text + "\n" +
+            "Edad: " + lblEdad.Text + "\n" +
+            "Fecha de inicio: " + lblFechaInicio.Text + "\n" +
+            "Plan: " + lblPlan.Text + "\n" +
+            "Casillero: " + lblCasillero.Text + "\n\n" +
+            "Monto inicial: " + lblMontoInicial.Text + "\n" +
+            "Pago mensual (5 cuotas): " + lblPagoMensual.Text + "\n" +
+            "Total a pagar: " + lblTotalPagar.Text + "\n" +
+            "------------------------------\n";
+
+        //Guardar datos en archivo de texto
+        string ruta = Path.Combine(FileSystem.AppDataDirectory, "ddelgadoExamen.txt");
+
+        await File.WriteAllTextAsync(ruta, datos);
+
+        // Abrir el archivo
+        await Launcher.Default.OpenAsync(
+            new OpenFileRequest
+            {
+                Title = "Abrir archivo de texto",
+                File = new ReadOnlyFile(ruta)
+            });
     }
 
     private async void btnCerrarSesion_Clicked(object sender, EventArgs e)
